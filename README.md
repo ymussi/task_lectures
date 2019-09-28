@@ -7,3 +7,5 @@
 
 - navegar até o diretório: task_lectures/task_lectures/
 - executar: python app.py
+
+- OBS: existe um exemplo de payload no arquivo "example_lectures.txt"
