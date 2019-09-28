@@ -49,11 +49,11 @@ class Lecture():
         for dado in dados:
             lunch = f"{self.set_hour(self.hr_lunch.time())} Lunch"
             happy_hour = f"{self.set_hour(self.hr_network.time())} Networking Event"
-            del dados[0]
+            # del dados[0]
             if hora.time() >= self.hr_lunch.time() and hora.time() < (self.hr_lunch + timedelta(hours=1)).time():
                 lectures.append(lunch)
                 hora += timedelta(hours=1)
-            elif hora.time() >= self.hr_network.time(): #(self.hr_network + timedelta(hours=1)).time():
+            elif hora.time() >= self.hr_network.time():
                 hora = self.hr_network
                 lectures.append(happy_hour)
             else:
