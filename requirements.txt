@@ -1,0 +1,5 @@
+gunicorn
+flask >= 1.0.2
+flask-restplus
+requests >= 2.18.4
+flask_cors
