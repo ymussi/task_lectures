@@ -49,23 +49,24 @@ class Lecture():
         for dado in dados:
             lunch = f"{self.set_hour(self.hr_lunch.time())} Lunch"
             happy_hour = f"{self.set_hour(self.hr_network.time())} Networking Event"
+            del dados[0]
             if hora.time() >= self.hr_lunch.time() and hora.time() < (self.hr_lunch + timedelta(hours=1)).time():
                 lectures.append(lunch)
                 hora += timedelta(hours=1)
-            elif hora.time() >= (self.hr_network + timedelta(hours=1)).time():
-                lectures.append(happy_hour)
+            elif hora.time() >= self.hr_network.time(): #(self.hr_network + timedelta(hours=1)).time():
                 hora = self.hr_network
-            lecture = f"{self.set_hour(hora.time())} {dado['lecture']}"
-            lectures.append(lecture)
-            hora += timedelta(minutes=int(dado['timing']))
-            del dados[0]
-        track += 1
+                lectures.append(happy_hour)
+            else:
+                lecture = f"{self.set_hour(hora.time())} {dado['lecture']}"
+                lectures.append(lecture)
+                hora += timedelta(minutes=int(dado['timing']))
+            track += 1
 
-        tracks = {
-            "title": f"track {track}",
-            "data": lectures
-        }
-        cronograma['data'].append(tracks)            
+            tracks = {
+                "title": f"track {track}",
+                "data": lectures
+            }
+            cronograma['data'].append(tracks)            
 
         return cronograma
     
